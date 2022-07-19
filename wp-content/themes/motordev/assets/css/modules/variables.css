@@ -1,0 +1,10 @@
+/* Vars */
+:root {
+    --content-box-width : 1150px;
+    --font-def          : 'Inter', sans-serif;
+    --dark-main : #111827;
+    --white-main : #E5E7EB;
+    --primary : #4F46E5;
+    --aspect-h : 9;
+    --aspect-w : 16;
+}

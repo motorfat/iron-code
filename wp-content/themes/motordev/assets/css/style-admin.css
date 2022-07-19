@@ -1,0 +1,48 @@
+/* ADMIN PAGES STYLES */
+
+/* Настройка стилей для Guttenberg-редактора */
+.motordev-wp-admin.block-editor-page .editor-styles-wrapper .wp-block {
+    max-width: 90%;
+}
+
+/* Поля метабоксов */
+.motordev-wp-admin .edit-post-meta-boxes-area .carbon-box {
+    box-shadow: 0 0 4px 1px rgb(56 65 74 / 15%);
+    border: none;
+    background: #FFF;
+    border-radius: 4px;
+    transition: 0.6s ease;
+}
+
+.motordev-wp-admin .edit-post-meta-boxes-area #poststuff .carbon-box .postbox-header h2.hndle {
+    font-size: 16px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.015em;
+}
+
+.motordev-wp-admin .edit-post-meta-boxes-area {
+    max-width: 90%;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+.motordev-wp-admin .edit-post-meta-boxes-area #poststuff .carbon-box {
+    margin-bottom: 20px;
+}
+
+.motordev-wp-admin .edit-post-meta-boxes-area #poststuff .carbon-box .inside {
+    padding: 0 20px;
+}
+
+.motordev-wp-admin .block-editor .edit-post-meta-boxes-area .cf-container__fields {
+    border: none;
+}
+
+.motordev-wp-admin .cf-image .cf-file__browse {
+    width: 90%;
+    white-space: normal;
+    font-size: 12px;
+    line-height: 1.5;
+    padding: 4px;
+}

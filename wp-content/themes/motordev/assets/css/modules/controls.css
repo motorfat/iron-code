@@ -1,0 +1,126 @@
+button,
+.btn,
+.wpcf7-submit,
+input[type="submit"],
+.link-btn,
+.action-btn {
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    -ms-progress-appearance: none;
+    background: none;
+    box-shadow: none;
+    border: none;
+    font-family: var(--font-def);
+    display: inline-block;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.btn {
+    font-family: var(--font-def);
+    font-weight: 500;
+    font-style: normal;
+    font-size: 18px;
+    background: var(--primary);
+    border: none;
+    border-radius: 999px;
+    color: rgb(249, 250, 251);
+    padding: 14px 28px;
+    text-align: center;
+    letter-spacing: 0.025em;
+    transition: 0.3s all ease-in-out;
+}
+
+.btn:hover {
+    background: rgb(67, 56, 202);
+}
+
+.btn__icon,
+.btn__text {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.link-btn {
+    color: var(--primary);
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1;
+    padding: 0 0 3px 0;
+    border-bottom: 1px solid var(--primary);
+    transition: 0.3s ease;
+}
+
+.link-btn:hover {
+    border-color: transparent;
+    color: var(--yellow);
+}
+
+.navbar-toggle {
+    display: none;
+    max-width: 100%;
+    margin: 0 auto;
+    background-color: #FFF;
+    color: #000;
+}
+
+.action-btn {
+    padding: 4px 12px;
+    text-align: center;
+    border-radius: 10px;
+    background-color: var(--orange);
+    color: #FFF;
+    box-shadow: rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(0 0 0 / 10%) 0px 4px 6px -1px, rgb(0 0 0 / 6%) 0px 2px 4px -1px;
+}
+
+.action-btn__icon,
+.action-btn__title,
+.read-more-link__icon,
+.read-more-link__title {
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 1;
+}
+
+.action-btn__icon {
+    color: #FFF;
+    width: 15px;
+    height: auto;
+}
+
+.action-btn__icon + .action-btn__title,
+.action-btn__title + .action-btn__icon {
+    margin-left: 10px;
+}
+
+.read-more-link {
+    color:var(--orange);
+    border-bottom: 2px solid var(--orange);
+    padding-bottom: 3px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 1;
+    transition: .3s ease;
+}
+
+.read-more-link__title {}
+
+.read-more-link__icon {
+    height: 1.25rem;
+    width: 1.25rem;
+    margin-left: 1rem;
+    transition: .3s ease;
+}
+
+.read-more-link:hover {
+    color: #000;
+    border-color: #000;
+}
+
+.read-more-link:hover .read-more-link__icon {
+    margin-left: 1.5rem;
+}
+
+

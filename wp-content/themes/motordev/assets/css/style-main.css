@@ -1,0 +1,12 @@
+/* MAIN STYLES */
+@import url("modules/reset.css");
+@import url("modules/variables.css");
+@import url("modules/layout.css");
+@import url("modules/base.css");
+@import url("modules/controls.css");
+@import url("modules/fancybox.css");
+@import url("modules/swiper.css");
+@import url("modules/header.css");
+@import url("modules/posts.css");
+@import url("modules/sections.css");
+@import url("modules/footer.css");
