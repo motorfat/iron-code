@@ -56,9 +56,9 @@ Thumbs.db
 *.komodoproject
 
 # ignore log files and databases
-*.log
-*.sql
-*.sqlite
+# *.log
+# *.sql
+# *.sqlite
 
 # ignore compiled files
 *.com
@@ -103,4 +103,4 @@ Thumbs.db
 # add your own entries here
 # !wp-content/mu-plugins/example-mu-plugin/
 # !wp-content/plugins/example-plugin/
-!wp-content/themes/motordev/
+# !wp-content/themes/motordev/
