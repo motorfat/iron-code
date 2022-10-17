@@ -46,6 +46,6 @@
                     </a>
                 </article>
             </div>
-        </div>
+        </div>       
     </div>
 </section>

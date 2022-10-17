@@ -218,6 +218,7 @@ function motordev_section_heading( $section_heading = [] ) {
  */
 function motordev_front_page_sections() {
 	get_template_part( 'template-parts/sections/section-front', 'slider' );
-	get_template_part( 'template-parts/sections/section-front', 'services' );
+	// get_template_part( 'template-parts/sections/section-front', 'services' );
+	get_template_part( 'template-parts/sections/section-front', 'authors' );
 }
 add_action( 'front_page_content', 'motordev_front_page_sections', 5 );
