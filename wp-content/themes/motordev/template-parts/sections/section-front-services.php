@@ -1,4 +1,4 @@
-<section class="services-section">
+<section class="front-section front-section-section">
     <div class="services content-box">
         <div class="section-inner-block">
             <?php motordev_section_heading( [ 'title' => 'Услуги', 'desc' => '' ] ); ?>

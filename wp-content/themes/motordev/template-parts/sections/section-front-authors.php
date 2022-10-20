@@ -1,4 +1,4 @@
-<section class="section-authors">
+<section class="front-section front-section-authors">
     <div class="content-box">
         <div class="section-inner-block">
             <?php motordev_section_heading( [ 'title' => 'Команда авторов', 'desc' => 'Профессионалы в своих областях, которые создают контент' ] ); ?>

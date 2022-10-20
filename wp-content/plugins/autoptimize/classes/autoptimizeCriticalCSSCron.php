@@ -81,7 +81,7 @@ class autoptimizeCriticalCSSCron {
             $rtimelimit = $this->criticalcss->get_option( 'rtimelimit' );
 
             // Initialize counters.
-            if ( $rtimelimit == 0 ) {
+            if ( 0 == $rtimelimit ) {
                 // no time limit set, let's go with 1000 seconds.
                 $rtimelimit = 1000;
             }
@@ -231,6 +231,7 @@ class autoptimizeCriticalCSSCron {
                             $jprops['jvstat'] = $apireq['validationStatus'];
                             $jprops['jftime'] = microtime( true );
                             $rule_update      = true;
+                            do_action( 'autoptimize_action_ccss_cron_rule_saved', $jprops['rtarget'], $jprops['file'] );
                             $this->criticalcss->log( 'Job id <' . $jprops['ljid'] . '> result request successful, remote id <' . $jprops['jid'] . '>, status <' . $jprops['jqstat'] . '>, file saved <' . $jprops['file'] . '>', 3 );
                         } elseif ( 'GOOD' == $apireq['resultStatus'] && ( 'BAD' == $apireq['validationStatus'] || 'SCREENSHOT_WARN_BLANK' == $apireq['validationStatus'] ) ) {
                             // SUCCESS: GOOD job with BAD or SCREENSHOT_WARN_BLANK validation
@@ -242,6 +243,7 @@ class autoptimizeCriticalCSSCron {
                             if ( apply_filters( 'autoptimize_filter_ccss_save_review_rules', true ) ) {
                                 $jprops['file']   = $this->ao_ccss_save_file( $apireq['css'], $trule, true );
                                 $rule_update      = true;
+                                do_action( 'autoptimize_action_ccss_cron_rule_saved', $jprops['rtarget'], $jprops['file'] );
                                 $this->criticalcss->log( 'Job id <' . $jprops['ljid'] . '> result request successful, remote id <' . $jprops['jid'] . '>, status <' . $jprops['jqstat'] . ', file saved <' . $jprops['file'] . '> but requires REVIEW', 3 );
                             } else {
                                 $this->criticalcss->log( 'Job id <' . $jprops['ljid'] . '> result request successful, remote id <' . $jprops['jid'] . '>, status <' . $jprops['jqstat'] . ', file not saved because it required REVIEW.', 3 );
@@ -505,12 +507,15 @@ class autoptimizeCriticalCSSCron {
         // Prepare the request.
         $url  = esc_url_raw( AO_CCSS_API . 'generate?aover=' . AO_CCSS_VER );
         $args = array(
-            'headers' => apply_filters( 'autoptimize_ccss_cron_api_generate_headers', array(
-                'User-Agent'    => 'Autoptimize v' . AO_CCSS_VER,
-                'Content-type'  => 'application/json; charset=utf-8',
-                'Authorization' => 'JWT ' . $key,
-                'Connection'    => 'close',
-            ) ),
+            'headers' => apply_filters(
+                'autoptimize_ccss_cron_api_generate_headers',
+                array(
+                    'User-Agent'    => 'Autoptimize v' . AO_CCSS_VER,
+                    'Content-type'  => 'application/json; charset=utf-8',
+                    'Authorization' => 'JWT ' . $key,
+                    'Connection'    => 'close',
+                )
+            ),
             'body'    => $body,
         );
 
@@ -580,11 +585,14 @@ class autoptimizeCriticalCSSCron {
         // Prepare the request.
         $url  = AO_CCSS_API . 'results?resultId=' . $jobid;
         $args = array(
-            'headers' => apply_filters( 'autoptimize_ccss_cron_api_generate_headers', array(
-                'User-Agent'    => 'Autoptimize CriticalCSS Power-Up v' . AO_CCSS_VER,
-                'Authorization' => 'JWT ' . $key,
-                'Connection'    => 'close',
-            ) ),
+            'headers' => apply_filters(
+                'autoptimize_ccss_cron_api_generate_headers',
+                array(
+                    'User-Agent'    => 'Autoptimize CriticalCSS Power-Up v' . AO_CCSS_VER,
+                    'Authorization' => 'JWT ' . $key,
+                    'Connection'    => 'close',
+                )
+            ),
         );
 
         // Dispatch the request and store its response code.
@@ -699,7 +707,7 @@ class autoptimizeCriticalCSSCron {
 
         // Prepare rule variables.
         $trule  = explode( '|', $srule );
-        if ( array_key_exists( $trule[1], $rules[$trule[0]] ) ) {
+        if ( array_key_exists( $trule[1], $rules[ $trule[0] ] ) ) {
             $rule = $rules[ $trule[0] ][ $trule[1] ];
         } else {
             $rule = array();
@@ -718,7 +726,7 @@ class autoptimizeCriticalCSSCron {
             $rule['file'] = $file;
             $action       = 'UPDATED';
             $rtype        = 'AUTO';
-        } elseif ( is_array( $rule ) &&  0 !== $rule['hash'] && ctype_alnum( $rule['hash'] ) ) {
+        } elseif ( is_array( $rule ) && 0 !== $rule['hash'] && ctype_alnum( $rule['hash'] ) ) {
             // If this is an genuine AUTO rule, update its hash and filename
             // Set rule hash, file and action flag.
             $rule['hash'] = $hash;

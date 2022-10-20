@@ -12,5 +12,14 @@ function motordev_custom_fields() {
 	// 		Field::make( 'rich_text', 'promo_desc', __( 'Описание' ) ),
 	// 		Field::make( 'image', 'promo_img_hero', __( 'Изображение героя' ) ),
 	// 	));
+
+	/**
+	 * TERMS META
+	 */
+	Container::make( 'term_meta', __( 'Дополнительно' ) )
+		// ->where( 'term_taxonomy', '=', 'category' )
+		->add_fields( array(
+			Field::make( 'image', 'term_thumb', __( 'Изображение' ) )
+		) );
 }
 add_action( 'carbon_fields_register_fields', 'motordev_custom_fields' );
